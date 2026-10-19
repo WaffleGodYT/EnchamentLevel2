@@ -1,0 +1,24 @@
+# Level every player starts with (15 allows level 2 enchantments)
+start-level: 15
+
+# Levels can never drop below this
+min-level: 0
+
+# Levels can never rise above this
+max-level: 30
+
+# Also give the killer 1 level straight away when they kill a player.
+# Off by default: the dropped bottle is the reward.
+kill-bonus: false
+
+# Enchantment table enchants scale with your level.
+# Enchant level = your level / levels-per-tier (rounded down, at least 1).
+# With 5: level 15 = tier 3, level 30 = tier 6 (Sharpness VI).
+scale-enchants: true
+levels-per-tier: 5
+
+# Stop mobs, mining, smelting etc. from giving XP so bottles are the only way to gain levels
+block-xp-gain: true
+
+# Enchanting tables and anvils don't spend your levels
+free-enchanting: true
