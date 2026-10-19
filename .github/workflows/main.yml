@@ -8,18 +8,29 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '21'
-          cache: maven
 
-      - name: Build with Maven
-        run: mvn -B package
+      - name: Arrange files and build
+        run: |
+          JAVA=$(find . -name EnchantmentPlugin.java -not -path "./build/*" | head -n 1)
+          PLUGIN=$(find . -name plugin.yml -not -path "./build/*" | head -n 1)
+          CONFIG=$(find . -name config.yml -not -path "./build/*" | head -n 1)
+          POM=$(find . -name pom.xml -not -path "./build/*" | head -n 1)
+          echo "java=$JAVA plugin=$PLUGIN config=$CONFIG pom=$POM"
+          test -n "$JAVA" && test -n "$PLUGIN" && test -n "$CONFIG" && test -n "$POM"
+          mkdir -p build/src/main/java/com/wafflegodxd/enchantment build/src/main/resources
+          cp "$JAVA" build/src/main/java/com/wafflegodxd/enchantment/
+          cp "$PLUGIN" "$CONFIG" build/src/main/resources/
+          cp "$POM" build/pom.xml
+          cd build
+          mvn -B package
 
       - uses: actions/upload-artifact@v4
         with:
           name: Enchantment
-          path: target/Enchantment-*.jar
+          path: build/target/Enchantment-*.jar
