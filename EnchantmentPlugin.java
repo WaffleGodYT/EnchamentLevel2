@@ -27,6 +27,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.Color;
+import org.bukkit.inventory.ShapelessRecipe;
+import org.bukkit.inventory.meta.PotionMeta;
 
 import java.util.HashSet;
 import java.util.List;
