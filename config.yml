@@ -1,4 +1,6 @@
-# Level every player starts with (15 allows level 2 enchantments)
+# ---------------------------------------------------------------- levels
+
+# Level every player starts with (15 = gear tier 3)
 start-level: 15
 
 # Levels can never drop below this
@@ -11,14 +13,37 @@ max-level: 30
 # Off by default: the dropped bottle is the reward.
 kill-bonus: false
 
+# Stop mobs, mining, smelting etc. from giving XP so bottles and potions are the only way to gain levels
+block-xp-gain: true
+
+# ------------------------------------------------------------- enchanting
+
 # Enchantment table enchants scale with your level.
 # Enchant level = your level / levels-per-tier (rounded down, at least 1).
 # With 5: level 15 = tier 3, level 30 = tier 6 (Sharpness VI).
 scale-enchants: true
 levels-per-tier: 5
 
-# Stop mobs, mining, smelting etc. from giving XP so bottles are the only way to gain levels
-block-xp-gain: true
-
 # Enchanting tables and anvils don't spend your levels
 free-enchanting: true
+
+# ---------------------------------------------------------------- gear lock
+
+# Gear is locked by its highest enchantment level.
+# You can only use gear whose tier is at or below your own tier
+# (your level / levels-per-tier). Level 15 can't use a Sharpness VI sword
+# (needs level 30) or wear Protection IV armor (needs level 20).
+# Too-powerful armor is taken off, and weapons, tools, bows and tridents don't work.
+gear-gating: true
+
+# Also stop too-powerful gear from being picked up at all.
+# Off by default: players can pick it up but can't use or wear it.
+block-pickup: false
+
+# ----------------------------------------------------------------- potion
+
+# Craftable Potion of Levels: 2 gold ingots + 4 diamonds + 2 netherite ingots + 1 glass bottle
+# (any arrangement on the crafting grid). Right-click it to gain potion-levels levels.
+# Changing potion-recipe needs a full server restart.
+potion-recipe: true
+potion-levels: 5
