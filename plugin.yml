@@ -2,7 +2,7 @@ name: Enchantment
 version: '${project.version}'
 main: com.wafflegodxd.enchantment.EnchantmentPlugin
 api-version: '1.21'
-description: Lifesteal, but with XP levels. Kill a player to steal a level.
+description: Lifesteal, but with XP levels. Your level decides what gear you can use.
 commands:
   enchantment:
     description: Check or manage enchantment levels
@@ -11,3 +11,6 @@ permissions:
   enchantment.admin:
     description: Use /enchantment set and /enchantment reload
     default: op
+  enchantment.bypass:
+    description: Ignore the gear level lock (for testing)
+    default: false
