@@ -27,6 +27,27 @@ levels-per-tier: 5
 # Enchanting tables and anvils don't spend your levels
 free-enchanting: true
 
+# At the enchanting table, players at any-enchant-level or higher have a chance
+# to also get an enchant that normally can't go on that item (Wind Burst on a sword).
+# The extra enchant is capped at its normal max level. 0.5 = 50% chance.
+any-enchant: true
+any-enchant-level: 30
+any-enchant-chance: 0.5
+
+# ------------------------------------------------------ special enchants
+
+# 10 custom enchants (Lifesteal, Frostbite, Executioner, Bloodrush, Static Shock,
+# Second Wind, Nightsight, Springheel, Prospector, Snare). They never go above level II.
+# Type /enchantment list in game to see what each one does.
+special-enchants: true
+
+# Chance that an enchanting table gives the item one special enchant that fits it.
+# 0.3 = 30% chance.
+special-chance: 0.3
+
+# You need at least this level for the table to be able to roll a level II special enchant.
+special-level-2-min-level: 25
+
 # ---------------------------------------------------------------- gear lock
 
 # Gear is locked by its highest enchantment level.
@@ -46,4 +67,4 @@ block-pickup: false
 # (any arrangement on the crafting grid). Right-click it to gain potion-levels levels.
 # Changing potion-recipe needs a full server restart.
 potion-recipe: true
-potion-levels: 5
+potion-levels: 2
